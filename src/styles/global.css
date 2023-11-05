@@ -1,0 +1,227 @@
+html {
+    /* background-color: #f1f5f9; */
+    background:rgb(241, 241, 241);
+    font-family: sans-serif;
+    
+  }
+  
+  body {
+    height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1080px;
+    /* padding: 1rem; */
+    line-height: 1.5;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+
+
+
+footer {
+    text-align: center;
+    position: sticky;
+    margin: 0.5rem 0;
+    position: sticky;
+    top: 100vh;
+    width: 100%;
+  }
+  
+h1{
+    color:black;
+    margin-top:2ex; margin-bottom:2ex;
+    font-size: 2.5rem;
+}
+
+h1::after{
+    content: '';
+    display: block;
+    background:rgb(35,64,89);;
+    height: 0.3ex;
+    width: auto;
+    margin-top: -0.4ex;
+}
+
+
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.3em 1em;
+  margin:1ex 1em;
+  text-decoration: none;
+  color: rgb(35,64,89);
+  background-color: white;
+  border: solid 2px rgb(35,64,89);
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-border:hover {
+  background: rgb(35,64,89);
+  color: white;
+}
+
+  img {
+    display: block;
+    margin-left: auto; margin-right: auto;
+    width:100%; max-width: 650pt; height: auto;
+}
+
+.article-card{
+    padding: 0.3em 1em;
+    margin: 1.5ex 0.5em;
+    /*text-decoration: none;*/
+    color: black;
+    background: white;
+    /* border: solid 2px rgb(35,64,89);
+    border-radius: 0.3em;
+    transition: .4s; */
+}
+
+.article-card-title a{
+    font-size: xx-large;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(35,64,89);
+}
+table {
+
+    border-collapse: collapse; margin-left: auto; margin-right: auto; margin-top: 2ex; margin-bottom: 2ex;
+}
+th,td {
+    border:solid 1px; border-color: black;
+    padding:0.5em;
+    
+} 
+
+th {
+    text-align:center;
+    background:rgb(35, 64, 89); color:white;
+}
+
+.databox{
+    margin-top:-3ex; margin-bottom: 2.5ex;
+    text-align: right; font-size: large;
+}
+
+.tag a{
+    margin: 0.5em;
+    border: solid 1px rgb(35, 64, 89);
+    border-radius: .3em;
+    padding: .5em 1em;
+    color: rgb(35, 64, 89);
+    background-color: white;
+    text-decoration: none;
+    transition: .4s;
+}
+
+.tag a:hover {
+  background: rgb(35,64,89);
+  color: white;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+}
+
+
+.contents{
+    padding-left:1.5em; 
+    padding-right:1.5em; 
+    padding-top:0.5ex; 
+    padding-bottom:0.5ex; 
+    margin-top:0pt; 
+    margin-bottom:2.5ex;  
+    background:white;
+}
+
+/* ナビゲーションのスタイル */
+.hamburger {
+    width: 100%;
+    padding: 1ex;
+    cursor: pointer;
+    background-color: rgb(35,64,89);
+}
+  
+.hamburger .line {
+    
+    display: block;
+    width: 2.5rem;
+    height: 0.35em;
+    margin-top:    0.5em;
+    margin-bottom: 0.5em;
+    background-color: white;
+  }
+.nav-links {
+    width: 100%;
+    top: 50rem;
+    left: 48px;
+    background-color: rgb(35,64,89);
+    display: none;
+    margin: 0;
+  }
+  
+  .nav-links a {
+    display: block;
+    text-align: center;
+    padding: 1.6ex 0;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: .4s;
+    color: white;
+    background-color: rgb(35, 64, 89);
+
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:focus {
+    background-color:white;
+    color: rgb(35,64,89);
+  }
+  
+  .expanded {
+    display: unset;
+  }
+
+  @media screen and (max-width: 635px){
+    .web-title{
+      display: none;
+    }
+  }
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      display: flex;
+      position: static;
+      width: auto;
+      background-color: rgb(35,64,89);
+    }
+    .nav-links > span:first-of-type{
+      margin-right: auto;
+  }
+    .nav-links a {
+      display: inline-block;
+      padding: 1.6ex 2ex;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+
+    .web-title a{
+      color:white;
+      display: inline-block;
+      padding-left:  4ex;
+      padding-right: 4ex;
+      font-size: 1.4rem;
+      font-weight: normal;
+    }
+  
+    .hamburger {
+        display: none;
+      }
+
+  }

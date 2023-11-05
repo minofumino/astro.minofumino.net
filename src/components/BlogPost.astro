@@ -1,0 +1,15 @@
+---
+const {title, url, pubDate, tags, description} = Astro.props;
+---
+<div class="article-card">
+    <p class="article-card-title"><a href={url}>{title}</a></p>
+    <p>{description}</p>
+    <p class="tag">
+        {pubDate.slice(0,10)},
+        Tags:
+        {tags.map((tag) => (
+            <a href={`/tags/${tag}`}>{tag}</a>
+          ))}
+    </p>
+
+</div>
