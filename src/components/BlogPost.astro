@@ -6,7 +6,7 @@ const {title, url, pubDate, tags, description} = Astro.props;
     <p>{description}</p>
     <p class="tag">
         {pubDate.slice(0,10)},
-        Tags:
+        タグ:
         {tags.map((tag) => (
             <a href={`/tags/${tag}`}>{tag}</a>
           ))}

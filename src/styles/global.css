@@ -68,8 +68,8 @@ h1::after{
 }
 
 .article-card{
-    padding: 0.3em 1em;
-    margin: 1.5ex 0.5em;
+    padding: 0.3rem 1rem;
+    margin: 1.2rem 0;
     /*text-decoration: none;*/
     color: black;
     background: white;
@@ -86,8 +86,8 @@ h1::after{
 }
 
 .article-list{
-  padding-left:1.5em; 
-  padding-right:1.5em; 
+  padding-left: 1.0rem; 
+  padding-right:1.0rem; 
 }
 
 table {
@@ -107,6 +107,7 @@ th {
 
 .databox{
     margin-top:-3ex; margin-bottom: 2.5ex;
+    padding-right: 0.7rem;
     text-align: right; font-size: large;
 }
 
