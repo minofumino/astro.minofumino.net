@@ -1,18 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 const allPosts = await Astro.glob('../pages/posts/*.md');
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+const sortedPosts = nonDraftPosts.sort( (a,b) => {
+  const a_Date = new Date(a.frontmatter.pubDate);
+  const b_Date = new Date(b.frontmatter.pubDate);
+  return b_Date.getTime() - a_Date.getTime();
+});
 import BlogPost from '../components/BlogPost.astro';
 const pageTitle = "Posts";
 ---
 <BaseLayout pageTitle={pageTitle}>
-    <h2>記事一覧</h2>
-    {allPosts.map((post) => 
-    <BlogPost url={post.url}
-      title={post.frontmatter.title}
-      pubDate={post.frontmatter.pubDate}
-      tags={post.frontmatter.tags}
-      description={post.frontmatter.description}/>)
-    }
+    <div class="article-list">
+      <h2>記事一覧</h2>
+      {sortedPosts.map((post) => 
+      <BlogPost url={post.url}
+        title={post.frontmatter.title}
+        pubDate={post.frontmatter.pubDate}
+        tags={post.frontmatter.tags}
+        description={post.frontmatter.description}/>)
+      }
+    </div>
+
 
     <p>
         <a href="../tags" class="btn-flat-border">タグ一覧</a>

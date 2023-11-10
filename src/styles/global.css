@@ -7,11 +7,9 @@ html {
   
   body {
     height: 100vh;
-    grid-template-rows: auto 1fr auto;
     margin: 0 auto;
     width: 100%;
     max-width: 1080px;
-    /* padding: 1rem; */
     line-height: 1.5;
   }
   
@@ -19,8 +17,6 @@ html {
     box-sizing: border-box;
   }
   
-
-
 
 footer {
     text-align: center;
@@ -34,6 +30,7 @@ footer {
 h1{
     color:black;
     margin-top:2ex; margin-bottom:2ex;
+    margin-left: 0.7rem;
     font-size: 2.5rem;
 }
 
@@ -43,7 +40,7 @@ h1::after{
     background:rgb(35,64,89);;
     height: 0.3ex;
     width: auto;
-    margin-top: -0.4ex;
+    margin-top: -0.4ex; margin-left: -0.7rem
 }
 
 
@@ -87,6 +84,12 @@ h1::after{
     text-decoration: none;
     color: rgb(35,64,89);
 }
+
+.article-list{
+  padding-left:1.5em; 
+  padding-right:1.5em; 
+}
+
 table {
 
     border-collapse: collapse; margin-left: auto; margin-right: auto; margin-top: 2ex; margin-bottom: 2ex;
