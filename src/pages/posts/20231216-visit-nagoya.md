@@ -8,7 +8,7 @@ tags: ["散歩", "お出かけ"]
 ## はじめに
 この記事は[散歩・徒歩・苦行 Advent Calendar](https://adventar.org/calendars/8696)の16日目の記事です。
 - 前日の記事: 「[スカイツリーから新宿まで歩いてタダでショルダーバッグを貰おう](https://thkr64.site/2023/12/15/walk-skytree-shinjuku/)」
-<!-- - 翌日の記事: 「[調布祭期間中○調の仕事で大量に歩いたお話(徒歩)](https://adventar.org/calendars/8696)」 -->
+- 翌日の記事: 「[調布祭期間中○調の仕事で大量に歩いたお話](https://helkun.dev/blog/chofufes_walking.html)」
 
 10月末~11月頭に所用で名古屋に行ってきました。そのときの空き時間に名古屋駅周辺とかを散歩した記録です。
 
@@ -128,4 +128,8 @@ tags: ["散歩", "お出かけ"]
 
 今まで名古屋は通り過ぎるだけだったので色々な観光地を見ることができてよかったです。
 
-ただの散歩記事なので歩行距離は今回のアドカレの中で最短になってそう。
+~~ただの散歩記事なので歩行距離は今回のアドカレの中で最短になってそう。~~
+
+(2023/12/18追記)
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ソウル徒歩も実は2kmしか歩いてない</p>&mdash; 淵野アタリ (@ebioishii_u) <a href="https://twitter.com/ebioishii_u/status/1736657517789487166?ref_src=twsrc%5Etfw">December 18, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+え？
