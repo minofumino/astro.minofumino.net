@@ -31,7 +31,7 @@ const { posts } = Astro.props;
     {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags} description={post.frontmatter.description}/>)}
   </div>
   <p>
-    <a href="./" class="btn-flat-border">記事一覧へ</a>
+    <a href="../../posts" class="btn-flat-border">記事一覧へ</a>
     <a href="../tags" class="btn-flat-border">タグ一覧へ</a>
   </p>
 </BaseLayout>
