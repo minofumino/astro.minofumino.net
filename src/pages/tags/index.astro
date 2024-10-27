@@ -8,8 +8,8 @@ const tags = [...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat
 <BaseLayout pageTitle={pageTitle}>
     <div class="article-list">
         <h2>タグ一覧</h2>
-        <div class="tags">
-            {tags.map((tag) => <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>)}
+        <div class="tag">
+            {tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
         </div>
     </div>
 

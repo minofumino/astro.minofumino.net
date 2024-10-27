@@ -112,10 +112,12 @@ th {
 }
 
 .tag a{
-    margin: 0.5em;
+    margin-right:  0.25em; margin-left: 0.25em;  
+    margin-top:0.15em; margin-bottom: 0.15em;
+    display: inline-block;
     border: solid 1px rgb(35, 64, 89);
     border-radius: .3em;
-    padding: .5em 1em;
+    padding: 0.15em 0.8em;
     color: rgb(35, 64, 89);
     background-color: white;
     text-decoration: none;
