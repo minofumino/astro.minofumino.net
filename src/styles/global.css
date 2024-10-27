@@ -52,7 +52,7 @@ h1::after{
   color: rgb(35,64,89);
   background-color: white;
   border: solid 2px rgb(35,64,89);
-  border-radius: 3px;
+  border-radius: 0.25em;
   transition: .4s;
 }
 
@@ -117,7 +117,7 @@ th {
     display: inline-block;
     border: solid 1px rgb(35, 64, 89);
     border-radius: .3em;
-    padding: 0.15em 0.8em;
+    padding: 0.15em 0.75em;
     color: rgb(35, 64, 89);
     background-color: white;
     text-decoration: none;

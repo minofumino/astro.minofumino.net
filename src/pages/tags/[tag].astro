@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
     const uniqueTags = [...new Set(sortedPosts.map((post) => post.frontmatter.tags).flat())];
     return uniqueTags.map((tag) => {
-      const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+      const filteredPosts = sortedPosts.filter((post) => post.frontmatter.tags.includes(tag));
       return {
         params: { tag },
         props: { posts: filteredPosts },
@@ -25,9 +25,9 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 
 ---
-<BaseLayout pageTitle={"タグ: "+tag}>
+<BaseLayout pageTitle={"Posts: "+tag}>
   <div class="article-list">
-    <h2>{tag}のタグが付いた記事</h2>
+    <h2>{tag}のタグが付いた記事一覧</h2>
     {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags} description={post.frontmatter.description}/>)}
   </div>
   <p>
