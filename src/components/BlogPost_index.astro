@@ -1,0 +1,9 @@
+---
+const {title, url, pubDate, description} = Astro.props;
+---
+<div class="article-card">
+    <p class="article-card-title"><a href={url}>{title}</a></p>
+    <p>{pubDate.slice(0,10)}</p>
+    <p>{description}</p>
+
+</div>

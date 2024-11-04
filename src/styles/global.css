@@ -73,9 +73,9 @@ h1::after{
     /*text-decoration: none;*/
     color: black;
     background: white;
-    /* border: solid 2px rgb(35,64,89);
+    border: solid 0.05rem rgb(35,64,89);
     border-radius: 0.3em;
-    transition: .4s; */
+    /* transition: .4s; */
 }
 
 .article-card-title a{

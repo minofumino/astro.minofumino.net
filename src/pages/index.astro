@@ -1,15 +1,57 @@
 ---
-// import Header from '../components/Header.astro';
-// import Footer from "../components/Footer.astro";
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import BlogPost from '../components/BlogPost_index.astro';
 const pageTitle = "Home";
+const description = "雑記スペース";
+
+
+const allPosts = await Astro.glob('./posts/*.md');
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+const sortedPosts = nonDraftPosts.sort( (a,b) => {
+    const a_Date = new Date(a.frontmatter.pubDate);
+    const b_Date = new Date(b.frontmatter.pubDate);
+    return b_Date.getTime() - a_Date.getTime();
+});
+
 ---
-<BaseLayout pageTitle={pageTitle}>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={"ふみ箱"} />
+    <meta name="twitter:description" content={description}
+    />
+    <meta name="theme-color" content="#234059">
+    <title>{"ふみ箱"}</title>
+  </head>
+  <body>
+    <Header />
+    
+    <h1>{pageTitle}</h1>
+
     <div class="contents">
         <p>
-            備忘録。ごみ箱じゃないよ。
+            備忘録というか雑記スペースというか。ごみ箱じゃないよ。
         </p>
     </div>
 
-  </BaseLayout>
+    <div class="article-list">
+        <h2>最近の記事</h2>
+        {sortedPosts.slice(0,3).map((post) => 
+        <BlogPost url={post.url}
+          title={post.frontmatter.title}
+          pubDate={post.frontmatter.pubDate}
+          description={post.frontmatter.description}/>)
+        }
+      </div>
 
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
