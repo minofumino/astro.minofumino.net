@@ -8,7 +8,7 @@ tags: ["メロンパン"]
 
 この記事は[苦行またはメロンパン Advent Calendar](https://adventar.org/calendars/10188)の2日目の記事です。
 - 前日の記事は[メロンパン](https://deguishomepage.vercel.app/Kugyo2024/Kugyou2024.html)でした。
-- 翌日の記事はメロンパンだと思います。
+- 翌日の記事は[メロンパン](https://deguishomepage.vercel.app/melon/Melon1.html)です。
 
 メロンパンをします。苦行要素はありません。
 
