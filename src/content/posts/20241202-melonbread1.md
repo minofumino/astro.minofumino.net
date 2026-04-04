@@ -2,7 +2,6 @@
 title: 'メロンパンクラシック'
 pubDate: 2024-12-02
 description: '調布パルコで買ったメロンパン'
-layout: ../../layouts/MarkdownPostLayout.astro
 tags: ["メロンパン"]
 ---
 

@@ -1,11 +1,19 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-const { frontmatter } = Astro.props;
+
+interface Frontmatter {
+  title: string;
+  pubDate: Date;
+  tags: string[];
+  description: string;
+}
+
+const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
 ---
 <BaseLayout pageTitle={frontmatter.title}, description = {frontmatter.description}>
         
     <div class="databox">
-        <p class="article-pub-date">{frontmatter.pubDate.slice(0,10)}</p>
+        <p class="article-pub-date">{frontmatter.pubDate.toISOString().slice(0,10)}</p>
         <p class="tag">タグ: 
         {frontmatter.tags.map((tag) => (
           <a href={`/tags/${tag}`}>{tag}</a>

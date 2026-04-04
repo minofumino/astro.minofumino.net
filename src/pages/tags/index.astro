@@ -1,9 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+type Post = CollectionEntry<'posts'>;
+
 const pageTitle = "Posts";
-const allPosts = await Astro.glob('../posts/*.md');
-const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
-const tags = [...new Set(nonDraftPosts.map((post) => post.frontmatter.tags).flat())];
+const allPostsData = await getCollection('posts');
+const nonDraftPosts = allPostsData.filter((post) => !post.data.draft);
+const tags: string[] = [...new Set(nonDraftPosts.map((post) => post.data.tags).flat())];
 ---
 <BaseLayout pageTitle={pageTitle}>
     <div class="article-list">

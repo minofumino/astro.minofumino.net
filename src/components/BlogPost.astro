@@ -1,9 +1,17 @@
 ---
-const {title, url, pubDate, tags, description} = Astro.props;
+interface Props {
+  title: string;
+  url: string | undefined;
+  pubDate: string | Date;
+  tags: string[];
+  description: string;
+}
+
+const { title, url, pubDate, tags, description } = Astro.props as Props;
 ---
 <div class="article-card">
     <p class="article-card-title"><a href={url}>{title}</a></p>
-    <p>{pubDate.slice(0,10)}</p>
+    <p>{typeof pubDate === 'string' ? pubDate.slice(0,10) : pubDate.toISOString().slice(0,10)}</p>
     <p>{description}</p>
     <p class="tag">
         タグ:

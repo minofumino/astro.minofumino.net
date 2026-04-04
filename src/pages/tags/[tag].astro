@@ -1,19 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+type Post = CollectionEntry<'posts'>;
 
 export async function getStaticPaths() {
-    const allPosts = await Astro.glob('../posts/*.md');
-    const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
-    const sortedPosts = nonDraftPosts.sort( (a,b) => {
-      const a_Date = new Date(a.frontmatter.pubDate);
-      const b_Date = new Date(b.frontmatter.pubDate);
+    const allPostsData = await getCollection('posts');
+    const nonDraftPosts = allPostsData.filter((post) => !post.data.draft);
+    const sortedPosts = nonDraftPosts.sort((a, b) => {
+      const a_Date = new Date(a.data.pubDate);
+      const b_Date = new Date(b.data.pubDate);
       return b_Date.getTime() - a_Date.getTime();
     });
 
-    const uniqueTags = [...new Set(sortedPosts.map((post) => post.frontmatter.tags).flat())];
+    const uniqueTags = [...new Set(sortedPosts.map((post) => post.data.tags).flat())];
     return uniqueTags.map((tag) => {
-      const filteredPosts = sortedPosts.filter((post) => post.frontmatter.tags.includes(tag));
+      const filteredPosts = sortedPosts.filter((post) => post.data.tags.includes(tag));
       return {
         params: { tag },
         props: { posts: filteredPosts },
@@ -28,7 +31,7 @@ const { posts } = Astro.props;
 <BaseLayout pageTitle={"Posts: "+tag}>
   <div class="article-list">
     <h2>{tag}のタグが付いた記事一覧</h2>
-    {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags} description={post.frontmatter.description}/>)}
+    {posts.map((post) => <BlogPost url={`/posts/${post.slug}`} title={post.data.title} pubDate={post.data.pubDate} tags={post.data.tags} description={post.data.description}/>)}
   </div>
   <p>
     <a href="../../posts" class="btn-flat-border">記事一覧へ</a>

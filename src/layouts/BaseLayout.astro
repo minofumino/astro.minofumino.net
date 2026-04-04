@@ -2,7 +2,13 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { pageTitle, description } = Astro.props;
+
+interface Props {
+  pageTitle: string;
+  description?: string;
+}
+
+const { pageTitle, description } = Astro.props as Props;
 ---
 <html lang="ja">
   <head>

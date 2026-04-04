@@ -2,7 +2,6 @@
 title: '競馬場に行ってきた'
 pubDate: 2024-6-30
 description: '初めて競馬をしました'
-layout: ../../layouts/MarkdownPostLayout.astro
 tags: ["お出かけ"]
 ---
 ## はじめに
