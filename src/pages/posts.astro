@@ -1,10 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-const allPosts = await Astro.glob('../pages/posts/*.md');
-const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
-const sortedPosts = nonDraftPosts.sort( (a,b) => {
-  const a_Date = new Date(a.frontmatter.pubDate);
-  const b_Date = new Date(b.frontmatter.pubDate);
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+type Post = CollectionEntry<'posts'>;
+
+const allPostsData = await getCollection('posts');
+const nonDraftPosts = allPostsData.filter((post) => !post.data.draft);
+const sortedPosts = nonDraftPosts.sort((a, b) => {
+  const a_Date = new Date(a.data.pubDate);
+  const b_Date = new Date(b.data.pubDate);
   return b_Date.getTime() - a_Date.getTime();
 });
 import BlogPost from '../components/BlogPost.astro';
@@ -14,11 +18,11 @@ const pageTitle = "Posts";
     <div class="article-list">
       <h2>記事一覧</h2>
       {sortedPosts.map((post) => 
-      <BlogPost url={post.url}
-        title={post.frontmatter.title}
-        pubDate={post.frontmatter.pubDate}
-        tags={post.frontmatter.tags}
-        description={post.frontmatter.description}/>)
+      <BlogPost url={`/posts/${post.slug}`}
+        title={post.data.title}
+        pubDate={post.data.pubDate}
+        tags={post.data.tags}
+        description={post.data.description}/>)
       }
     </div>
 

@@ -2,7 +2,6 @@
 title: '名古屋を散策した話'
 pubDate: 2023-12-16
 description: '名古屋に行ってきました'
-layout: ../../layouts/MarkdownPostLayout.astro
 tags: ["散歩", "お出かけ"]
 ---
 ## はじめに

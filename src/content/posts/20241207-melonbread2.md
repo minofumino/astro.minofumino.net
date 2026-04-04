@@ -2,7 +2,6 @@
 title: 'メロンパンらしからぬメロンパン'
 pubDate: 2024-12-07
 description: '駒場のパン屋で買ったメロンパン'
-layout: ../../layouts/MarkdownPostLayout.astro
 tags: ["メロンパン"]
 ---
 

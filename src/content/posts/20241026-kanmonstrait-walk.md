@@ -2,7 +2,6 @@
 title: '関門海峡を歩いて横断する'
 pubDate: 2024-10-26
 description: '関門海峡を歩いて横断することで下関から門司まで行きました'
-layout: ../../layouts/MarkdownPostLayout.astro
 tags: ["散歩", "お出かけ"]
 ---
 ## はじめに
