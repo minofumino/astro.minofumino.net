@@ -61,10 +61,31 @@ h1::after{
   color: white;
 }
 
-  img {
-    display: block;
-    margin-left: auto; margin-right: auto;
-    width:100%; max-width: 650pt; height: auto;
+img {
+  display: block;
+  margin-left: auto; margin-right: auto;
+  width:100%; max-width: 650pt; height: auto;
+}
+
+figure.img-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto; margin-right: auto;
+  width: 100%; max-width: 650pt;
+}
+figure.img-figure img {
+  width: 100%;
+  max-width: 100%; /* figureの幅に追従 */
+  height: auto;
+  margin: 0; /* figure側でセンタリング済みなのでimgのmarginはリセット */
+}
+figure.img-figure figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(89,89,89);
+  margin-top: 0.325rem;
+  width: 100%;
 }
 
 .article-card{
