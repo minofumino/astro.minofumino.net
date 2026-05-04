@@ -8,5 +8,6 @@ export default defineConfig({
   adapter: vercel(),
   markdown: {
     rehypePlugins: [rehypeImgCaption],
+    shikiConfig: { theme: 'github-light'}
   },
 });
