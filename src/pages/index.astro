@@ -2,19 +2,13 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import BlogPost from '../components/BlogPost_index.astro';
-import { getCollection } from 'astro:content';
+import BlogPost from '../components/BlogPost.astro';
+import { getPublishedPosts } from '../lib/posts';
 
 const pageTitle = "Home";
 const description = "雑記スペース";
 
-const allPostsData = await getCollection('posts');
-const nonDraftPosts = allPostsData.filter((post) => !post.data.draft);
-const sortedPosts = nonDraftPosts.sort((a, b) => {
-    const a_Date = new Date(a.data.pubDate);
-    const b_Date = new Date(b.data.pubDate);
-    return b_Date.getTime() - a_Date.getTime();
-}).slice(0, 5); // 最新5件
+const recentPosts = (await getPublishedPosts()).slice(0, 3); // 最新3件
 
 ---
 <html lang="ja">
@@ -42,12 +36,13 @@ const sortedPosts = nonDraftPosts.sort((a, b) => {
 
     <div class="article-list">
         <h2>最近の記事</h2>
-        {sortedPosts.slice(0,3).map((post) => 
-        <BlogPost url={`/posts/${post.slug}`}
-          title={post.data.title}
-          pubDate={post.data.pubDate}
-          description={post.data.description}/>)
-        }
+        {recentPosts.map((post) => (
+          <BlogPost url={`/posts/${post.slug}`}
+            title={post.data.title}
+            pubDate={post.data.pubDate}
+            description={post.data.description} />
+        ))}
+        <p><a href="/posts" class="btn-flat-border">記事一覧へ</a></p>
       </div>
 
     <Footer />

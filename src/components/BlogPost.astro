@@ -1,23 +1,25 @@
 ---
+import { formatDate } from '../lib/posts';
+
 interface Props {
   title: string;
-  url: string | undefined;
-  pubDate: string | Date;
-  tags: string[];
+  url: string;
+  pubDate: Date;
   description: string;
+  tags?: string[];
 }
 
-const { title, url, pubDate, tags, description } = Astro.props as Props;
+const { title, url, pubDate, description, tags } = Astro.props;
+const date = formatDate(pubDate);
 ---
-<div class="article-card">
-    <p class="article-card-title"><a href={url}>{title}</a></p>
-    <p>{typeof pubDate === 'string' ? pubDate.slice(0,10) : pubDate.toISOString().slice(0,10)}</p>
+<article class="article-card">
+    <h3 class="article-card-title"><a href={url}>{title}</a></h3>
+    <p><time datetime={date}>{date}</time></p>
     <p>{description}</p>
-    <p class="tag">
-        タグ:
-        {tags.map((tag) => (
-            <a href={`/tags/${tag}`}>{tag}</a>
-          ))}
-    </p>
-
-</div>
+    {tags && tags.length > 0 && (
+        <p class="tag">
+            タグ:
+            {tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+        </p>
+    )}
+</article>

@@ -1,13 +1,19 @@
 ---
 import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import type { Post } from '../../lib/posts';
 
+// 下書きも直接URLでレビューできるよう、個別ページは全記事分生成する
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
+}
+
+interface Props {
+  post: Post;
 }
 
 const { post } = Astro.props;
