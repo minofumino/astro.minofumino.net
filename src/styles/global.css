@@ -98,6 +98,10 @@ figure.img-figure figcaption {
   /* transition: .4s; */
 }
 
+.article-card-title {
+  margin: 0.5em 0;
+}
+
 .article-card-title a{
   font-size: xx-large;
   font-weight: bold;

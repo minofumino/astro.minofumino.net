@@ -1,20 +1,19 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { formatDate, type Post } from '../lib/posts';
 
-interface Frontmatter {
-  title: string;
-  pubDate: Date;
-  tags: string[];
-  description: string;
+interface Props {
+  frontmatter: Post['data'];
 }
 
-const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
+const { frontmatter } = Astro.props;
+const date = formatDate(frontmatter.pubDate);
 ---
-<BaseLayout pageTitle={frontmatter.title}, description = {frontmatter.description}>
-        
+<BaseLayout pageTitle={frontmatter.title} description={frontmatter.description} noindex={frontmatter.draft}>
+
     <div class="databox">
-        <p class="article-pub-date">{frontmatter.pubDate.toISOString().slice(0,10)}</p>
-        <p class="tag">タグ: 
+        <p class="article-pub-date"><time datetime={date}>{date}</time></p>
+        <p class="tag">タグ:
         {frontmatter.tags.map((tag) => (
           <a href={`/tags/${tag}`}>{tag}</a>
         ))}
@@ -24,8 +23,8 @@ const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
         <slot />
     </div>
     <p>
-        <a href="./" class="btn-flat-border">記事一覧へ</a>
-        <a href="../tags" class="btn-flat-border">タグ一覧へ</a>
+        <a href="/posts" class="btn-flat-border">記事一覧へ</a>
+        <a href="/tags" class="btn-flat-border">タグ一覧へ</a>
     </p>
 
 </BaseLayout>

@@ -1,23 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getPublishedPosts, getTagCounts } from '../../lib/posts';
 
-type Post = CollectionEntry<'posts'>;
-
-const pageTitle = "Posts";
-const allPostsData = await getCollection('posts');
-const nonDraftPosts = allPostsData.filter((post) => !post.data.draft);
-const tags: string[] = [...new Set(nonDraftPosts.map((post) => post.data.tags).flat())];
+const tags = getTagCounts(await getPublishedPosts());
 ---
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle="Tags">
     <div class="article-list">
         <h2>タグ一覧</h2>
         <div class="tag">
-            {tags.map((tag) => <a href={`/tags/${tag}`}>{tag}</a>)}
+            {tags.map(({ tag, count }) => <a href={`/tags/${tag}`}>{tag}（{count}）</a>)}
         </div>
     </div>
 
     <p>
-        <a href="../posts" class="btn-flat-border">記事一覧</a>
+        <a href="/posts" class="btn-flat-border">記事一覧</a>
     </p>
 </BaseLayout>
